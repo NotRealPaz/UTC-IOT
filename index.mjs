@@ -35,12 +35,12 @@ const handleEvent = async (event) => {
 
   if (command === 'toggle') {
     try {
-      const result = await (await fetch(`http://${HOSTNAME}.local/trigger`)).text()
-      if (result === "success") return await reply(event.replyToken, result)
-      if (result === "rate limited") return await reply(event.replyToken, result)
-      return await reply(event.replyToken, "Error")
+      const result = await (await fetch(`http://${HOSTNAME}/trigger`)).text();
+      if (result === "success") return null;
+      if (result) return await reply(event.replyToken, result);
+      return await reply(event.replyToken, "Fail Successfully");
     } catch (error) {
-      return await reply(event.replyToken, "Error")
+      return await reply(event.replyToken, "Error");
     }
   }
 
