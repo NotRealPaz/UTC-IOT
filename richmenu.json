@@ -1,0 +1,23 @@
+{
+  "size": {
+    "width": 1200,
+    "height": 405
+  },
+  "selected": true,
+  "name": "Rich Menu",
+  "chatBarText": "Menu",
+  "areas": [
+    {
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 405
+      },
+      "action": {
+        "type": "message",
+        "text": "Toggle"
+      }
+    }
+  ]
+}

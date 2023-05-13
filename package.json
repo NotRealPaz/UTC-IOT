@@ -1,0 +1,13 @@
+{
+  "name": "utc-iot",
+  "version": "1.0.0",
+  "description": "HOME IOT for UTC NETWORK",
+  "main": "index.mjs",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@line/bot-sdk": "^7.5.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
