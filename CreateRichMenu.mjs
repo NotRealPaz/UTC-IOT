@@ -12,6 +12,7 @@ const richid = (await (await fetch("https://api.line.me/v2/bot/richmenu", {
   },
   body: JSON.stringify(richmenu),
 })).json()).richMenuId;
+
 // Upload image to rich menu
 await fetch(`https://api-data.line.me/v2/bot/richmenu/${richid}/content`, {
   method: "POST",
@@ -21,6 +22,7 @@ await fetch(`https://api-data.line.me/v2/bot/richmenu/${richid}/content`, {
   },
   body: await readFile('./button.jpg')
 })
+
 // set rich menu to default
 await fetch(`https://api.line.me/v2/bot/user/all/richmenu/${richid}`, {
   method: "POST",

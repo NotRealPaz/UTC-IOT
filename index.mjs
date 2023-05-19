@@ -26,6 +26,7 @@ const handleEvent = async (event) => {
   if (event.message.text === PASSWORD) {
     if (isAuth(event.source.userId)) return await reply(event.replyToken, "Already has access!");
     users[event.source.userId] = true;
+    console.log("New user added:", event.source.userId)
     return await reply(event.replyToken, "Welcome to UTC Network IOT");
   }
 
@@ -36,14 +37,14 @@ const handleEvent = async (event) => {
   if (command === 'toggle') {
     try {
       const result = await (await fetch(`http://${HOSTNAME}/trigger`)).text();
-      if (result === "success") return null;
+      if (result === "success") return console.log(`${event.source.userId}: Trigger Garage Door`);
       if (result) return await reply(event.replyToken, result);
       return await reply(event.replyToken, "Fail Successfully");
     } catch (error) {
       return await reply(event.replyToken, "Error");
     }
   }
-
+  
   return await reply(event.replyToken, 'Command\r\nToggle - Toggle garage door\r\nBy UTC NETWORK')
 }
 
